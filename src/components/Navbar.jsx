@@ -62,21 +62,30 @@ export default function Navbar() {
           </motion.div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-          className="md:hidden"
-        >
-          <motion.div whileTap={{ scale: 0.95 }}>
-            <Button 
-              variant="outline" 
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              <Menu size={20} />
-            </Button>
+        <div className="md:hidden flex items-center space-x-2">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+          >
+            <DarkMode />
           </motion.div>
-        </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <motion.div whileTap={{ scale: 0.95 }}>
+              <Button 
+                variant="outline" 
+                onClick={() => setIsOpen(!isOpen)}
+              >
+                <Menu size={20} />
+              </Button>
+            </motion.div>
+          </motion.div>
+        </div>
       </div>
 
       <AnimatePresence>
