@@ -53,7 +53,7 @@ const Hero = () => {
                     >
                         {[
                             { icon: <Github className="text-black" />, href: "https://github.com/Adibmaros/" },
-                            { icon: <Youtube className="text-red-500" />, href: "https://github.com/Adibmaros/" },
+                            { icon: <Youtube className="text-red-500" />, href: "https://www.youtube.com/@codewithadibb" },
                             { icon: <Linkedin className="text-blue-500" />, href: "https://www.linkedin.com/in/adib-maros-9826191b0/" },
                             { icon: <Instagram className="text-orange-500" />, href: "https://www.linkedin.com/in/adib-maros-9826191b0/" }
                         ].map((social, index) => (
