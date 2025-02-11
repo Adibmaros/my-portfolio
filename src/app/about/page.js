@@ -60,7 +60,7 @@ const Page = () => {
             Over the years, I've honed my skills in both frontend and backend development, working with technologies like
             <motion.span whileHover={{ scale: 1.05 }} className="font-semibold text-blue-500">
               {" "}
-              React.js, Next.js, Node.js, and MongoDB
+              React.js, Next.js, Node.js, MongoDB, Supabase and others
             </motion.span>
             . I enjoy solving complex problems and bringing innovative ideas to life through clean, efficient code.
           </motion.p>
@@ -77,7 +77,7 @@ const Page = () => {
             Skills & Technologies
           </motion.h2>
           <motion.ul className="list-disc pl-5 mt-4 text-lg">
-            {["Frontend: React.js, Next.js, Tailwind CSS, HTML, CSS", "Backend: Node.js, Express.js, MongoDB", "Version Control: Git, GitHub", "Other: REST APIs, GraphQL, Firebase, Testing (Jest, Cypress)"].map((skill, index) => (
+            {["Frontend: React.js, Next.js, Tailwind CSS, HTML, CSS", "Backend: Node.js, Express.js, MongoDB", "Version Control: Git, GitHub", "Other: REST APIs, Firebase, Testing (Jest)"].map((skill, index) => (
               <motion.li key={index} custom={index} variants={skillsVariants} whileHover={{ x: 10, transition: { duration: 0.2 } }} className="my-2">
                 {skill}
               </motion.li>
@@ -88,7 +88,7 @@ const Page = () => {
             Let's Connect
           </motion.h2>
           <motion.p variants={itemVariants} className="mt-4 text-lg" whileHover={{ scale: 1.01 }}>
-            I'm always open to new opportunities and collaborations. Feel free to reach out through my social media profiles or email. Looking forward to connecting with you!
+            I'm always open to new opportunities and collaborations. Feel free to reach out through my social media profiles and others. Looking forward to connecting with you!
           </motion.p>
         </motion.div>
       </motion.div>

@@ -22,14 +22,14 @@ const page = () => {
       githubUrl: "https://github.com/Adibmaros/filowords-app",
       tech: ["Next js", "Supabase"],
     },
-    {
-      title: "Task Management App",
-      description: "A responsive task management application with real-time updates and team collaboration features.",
-      image: "/api/placeholder/800/600",
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/example/project",
-      tech: ["React", "Firebase", "Material-UI"],
-    },
+    // {
+    //   title: "Task Management App",
+    //   description: "A responsive task management application with real-time updates and team collaboration features.",
+    //   image: "/api/placeholder/800/600",
+    //   liveUrl: "https://example.com",
+    //   githubUrl: "https://github.com/example/project",
+    //   tech: ["React", "Firebase", "Material-UI"],
+    // },
     // Tambahkan project lainnya di sini
   ];
 
