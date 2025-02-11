@@ -7,9 +7,19 @@ import { useState } from "react";
 import { Menu } from "lucide-react";
 import { DarkMode } from "./DarkMode";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import { useTheme } from "next-themes";
+import { useEffect } from "react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const { theme } = useTheme();
+  const [imageSrc, setImageSrc] = useState("/text.svg");
+
+  useEffect(() => {
+    setImageSrc(theme === "dark" ? "/text1.svg" : "/text.svg");
+  }, [theme]);
 
   const menuItems = [
     { href: "/about", label: "About" },
@@ -30,9 +40,9 @@ export default function Navbar() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Link href="/" className="text-xl font-bold text-gray-900 dark:text-white">
-            Adib&apos;s Portfolio
-          </Link>
+          <Link href="/" className="text-xl font-bold text-gray-900 dark:text-white flex items-center">
+  <Image className="" src={imageSrc} alt="Logo" width={100} height={100} priority />
+</Link>
         </motion.div>
 
         <div className="hidden md:flex space-x-6 md:items-center">
