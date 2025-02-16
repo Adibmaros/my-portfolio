@@ -73,7 +73,7 @@ const ProjectCard = ({ title, description, image, liveUrl, githubUrl, tech, inde
             Live Preview
           </motion.a>
           <motion.a
-            href={githubUrl}
+            href={githubUrl.length > 2 ? githubUrl : null }
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
