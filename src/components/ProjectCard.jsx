@@ -1,8 +1,10 @@
+// ProjectCard.jsx
 import React from "react";
 import { Github, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
-const ProjectCard = ({ title, description, image, liveUrl, githubUrl, tech, index }) => {
+const ProjectCard = ({ title, description, imageUrl, liveUrl, githubUrl, tech, index }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -23,11 +25,17 @@ const ProjectCard = ({ title, description, image, liveUrl, githubUrl, tech, inde
         whileHover={{ scale: 1.1 }}
         transition={{ duration: 0.3 }}
       >
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-full object-cover md:object-fill"
-        />
+        {imageUrl ? (
+          <img
+            src={imageUrl}
+            alt={title}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <div className="w-full h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+            <span className="text-gray-400 dark:text-gray-500">No image available</span>
+          </div>
+        )}
       </motion.div>
       <motion.div 
         className="p-6"
@@ -48,7 +56,7 @@ const ProjectCard = ({ title, description, image, liveUrl, githubUrl, tech, inde
         <motion.div 
           className="flex flex-wrap gap-2 mb-4"
         >
-          {tech.map((item, techIndex) => (
+          {tech && tech.map((item, techIndex) => (
             <motion.span 
               key={techIndex}
               whileHover={{ scale: 1.1 }}
@@ -61,28 +69,32 @@ const ProjectCard = ({ title, description, image, liveUrl, githubUrl, tech, inde
         <motion.div 
           className="flex justify-between items-center"
         >
-          <motion.a
-            href={liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <ExternalLink size={20} />
-            Live Preview
-          </motion.a>
-          <motion.a
-            href={githubUrl.length > 2 ? githubUrl : null }
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Github size={20} />
-            Source Code
-          </motion.a>
+          {liveUrl && (
+            <motion.a
+              href={liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <ExternalLink size={20} />
+              Live Preview
+            </motion.a>
+          )}
+          {githubUrl && githubUrl.length > 2 && (
+            <motion.a
+              href={githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Github size={20} />
+              Source Code
+            </motion.a>
+          )}
         </motion.div>
       </motion.div>
     </motion.div>
