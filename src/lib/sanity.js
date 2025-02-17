@@ -13,7 +13,11 @@ export async function getPosts() {
     *[_type == "post"] | order(publishedAt desc) {
       title,
       slug,
-      mainImage,
+      mainImage{
+        asset->{
+          url
+        }
+      },
       "authorName": author->name,
       categories[]->{
         title,
@@ -47,16 +51,19 @@ export async function getPost(slug) {
 
 // Ambil artikel berdasarkan kategori
 export async function getPostsByCategory(slug) {
+  // Make sure slug is properly quoted in the GROQ query
   return sanityClient.fetch(
-    `
-    *[_type == "post" && references(*[_type=="category" && slug.current==$slug]._id)] {
+    `*[_type == "post" && references(*[_type=="category" && slug.current == "${slug}"]._id)] {
       title,
       slug,
-      mainImage,
+      mainImage {
+        asset-> {
+          url
+        }
+      },
       "authorName": author->name,
-    }
-  `,
-    { slug }
+      "categories": categories[]->{ title, "slug": slug.current }
+    }`
   );
 }
 
