@@ -40,7 +40,13 @@ const Hero = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.6 }}
                     >
+                        <Link
+                        href="https://wa.me/6281368859389" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        >
                         <Button>Hire me</Button>
+                        </Link>
                         <Button variant="outline">Download CV</Button>
                     </motion.div>
                     
